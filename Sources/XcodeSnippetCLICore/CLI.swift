@@ -26,13 +26,13 @@ public struct CLI {
             let newProject = ProjectGenerate(
                 folder: folder,
                 repositoryURL: repositoryURL,
-                version: version,
-                type: projectType(from: arguments)
+                version: version
             )
             
             try newProject.generate()
         case "run":
-            outputHelpText()
+            let runner = ProjectRunner(folder: folder)
+            try runner.generate()
         default:
             outputHelpText()
         }
@@ -60,13 +60,5 @@ private extension CLI {
             
           See 'xcodeSnippet help <subcommand>' for detailed help.
         """)
-    }
-    
-    private func projectType(from arguments: [String]) -> ProjectType {
-        guard arguments.count > 2 else {
-            return .snippet
-        }
-
-        return ProjectType(rawValue: arguments[2]) ?? .snippet
     }
 }

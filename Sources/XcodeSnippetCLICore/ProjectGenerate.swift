@@ -5,18 +5,15 @@ struct ProjectGenerate {
     private let folder: Folder
     private let repositoryURL: URL
     private let version: String
-    private let type: ProjectType
     private let name: String
     
     public init(folder: Folder,
                 repositoryURL: URL,
-                version: String,
-                type: ProjectType
+                version: String
     ) {
         self.folder = folder
         self.repositoryURL = repositoryURL
         self.version = version
-        self.type = type
         self.name = folder.name.description
     }
     
@@ -27,13 +24,7 @@ struct ProjectGenerate {
         
         try generateGitignore()
         try generatePackageFile()
-        
-        switch type {
-        case .snippet:
-            try generateMainFile()
-        case .plugin:
-            try generatePluginBoilerplate()
-        }
+        try generateMainFile()
     }
 }
 
@@ -61,7 +52,7 @@ private extension ProjectGenerate {
             name: "\(name)",
             platforms: [.macOS(.v12)],
             products: [
-                .\(type.description)(
+                .executable(
                     name: "\(name)",
                     targets: ["\(name)"]
                 )
@@ -83,20 +74,13 @@ private extension ProjectGenerate {
         let path = "Source/\(name)/main.swift"
         
         try folder.createFileIfNeeded(at: path).write("""
-        import Foundation
         import XcodeSnippet
-        
-        
-        """)
-    }
-    
-    func generatePluginBoilerplate() throws {
-        let path = "Sources/\(name)/\(name).swift"
-        let methodName = name[name.startIndex].lowercased() + name.dropFirst()
-        
-        try folder.createFileIfNeeded(at: path).write("""
-        import XcodeSnippet
-        
+
+        struct snippetEx: Snippet {
+            var xcodeSnippet: [XcodeSnippet] = []
+        }
+
+        _ = try snippetEx().install()
         """)
     }
 }
