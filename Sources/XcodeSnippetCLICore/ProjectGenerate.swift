@@ -1,5 +1,5 @@
 import Foundation
 
-struct XcodeSnippet {
+struct ProjectGenerate {
     
 }
