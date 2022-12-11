@@ -15,11 +15,38 @@ public struct CLI {
     }
     
     public func run(in folder: Folder = .current) throws {
-        print(version)
+        guard arguments.count > 1 else {
+            return outputHelpText()
+        }
+
+        switch arguments[1] {
+        
+        default:
+            outputHelpText()
+        }
     }
 }
 
 // MARK: - Private
 private extension CLI {
-    
+    func outputHelpText() {
+        print("""
+        ┌────────────────────────────────────────────────────────────────┐
+        │ A new version of XcodeSnippet is available!                    │
+        │                                                                │
+        │ To update to the latest version, run "xcodeSnippet upgrade".   │
+        └────────────────────────────────────────────────────────────────┘
+        make your xcode snippet!
+        
+        OPTIONS:
+            -v, --version           Commands that tell you the version of the current XcodeSnippet.
+            
+        Available commands:
+            
+            - new:                  Set up a new XcodeSnippet in current holder
+            - run:                  Install user-created snippets.
+            
+          See 'xcodeSnippet help <subcommand>' for detailed help.
+        """)
+    }
 }

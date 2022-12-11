@@ -1,3 +1,3 @@
 install:
     swift build -c release
-    install .build/release/XcodeSnippet-cli /usr/local/bin/XcodeSnippet
+    install .build/release/xcodeSnippet-cli /usr/local/bin/xcodeSnippet
