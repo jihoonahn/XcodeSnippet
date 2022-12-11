@@ -1,6 +1,6 @@
 import Foundation
 
-enum AvailabilityType: String {
+public enum AvailabilityType: String {
     case All_Scopes
     case Class_Implementation
     case Code_Expression
@@ -10,7 +10,7 @@ enum AvailabilityType: String {
 }
 
 extension AvailabilityType: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         switch self {
         case .All_Scopes:
             return "All"

@@ -1,6 +1,6 @@
 import Foundation
 
-enum PlatformType: String {
+public enum PlatformType: String {
     case All
     case DriverKit
     case iOS
@@ -10,7 +10,7 @@ enum PlatformType: String {
 }
 
 extension PlatformType: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         switch self {
         case .All:
             return ""
