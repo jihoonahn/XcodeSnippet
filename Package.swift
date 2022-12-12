@@ -21,7 +21,7 @@ let package = Package(
                 .product(name: "ShellOut", package: "ShellOut")
             ]
         ),
-        .target(
+        .executableTarget(
             name: "XcodeSnippetCLI",
             dependencies: ["XcodeSnippetCLICore"]),
         .target(
@@ -30,6 +30,6 @@ let package = Package(
         ),
         .testTarget(
             name: "XcodeSnippetTests",
-            dependencies: ["XcodeSnippet"]),
+            dependencies: ["XcodeSnippet", "XcodeSnippetCLICore"]),
     ]
 )
