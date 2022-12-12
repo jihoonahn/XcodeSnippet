@@ -22,7 +22,7 @@ struct SnippetEx: Snippet {
     var xcodeSnippet: [XcodeSnippet] = []
 }
 
-_ = try snippetEx().install()
+try snippetEx().install()
 ```
 You can use it like this. XcodeSnipet is really simple, right?
 
