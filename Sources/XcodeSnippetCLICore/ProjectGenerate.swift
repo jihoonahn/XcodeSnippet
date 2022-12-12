@@ -25,6 +25,11 @@ struct ProjectGenerate {
         try generateGitignore()
         try generatePackageFile()
         try generateMainFile()
+        
+        print("""
+        ✅ Make project for '\(name)'
+        Run 'open Package.swift' to open it and start building  
+        """)
     }
 }
 
@@ -76,11 +81,11 @@ private extension ProjectGenerate {
         try folder.createFileIfNeeded(at: path).write("""
         import XcodeSnippet
 
-        struct snippetEx: Snippet {
+        struct \(name): Snippet {
             var xcodeSnippet: [XcodeSnippet] = []
         }
 
-        try snippetEx().install()
+        try \(name)().install()
         """)
     }
 }
