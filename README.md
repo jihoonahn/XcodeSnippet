@@ -71,7 +71,8 @@ $ xcodeSnippet new
 ```
 Finally, run `open Package.swift` to open up the project in Xcode to start making your snippet Setting!
 
-### MIT License
+## MIT License
+
 ```
 MIT License
 
