@@ -8,10 +8,10 @@ public protocol Snippet {
 
 // MARK: - public
 public extension Snippet {
-    func install() throws -> Self {
+    func install() throws -> Void  {
         let folder = try Folder(path: "~/Library/Developer/Xcode/UserData/CodeSnippets")
         let semaphore = DispatchSemaphore(value: 0)
-        var result: Result<Self, Error>?
+        var result: Result<Void, Error>?
         let completionHandler = { result = $0 }
 
         Task {
@@ -19,7 +19,7 @@ public extension Snippet {
                 try xcodeSnippet.forEach {
                     try $0.generateSnippet(folder: folder)
                 }
-                completionHandler(.success(self))
+                completionHandler(.success)
             } catch {
                 completionHandler(.failure(error))
             }
@@ -27,4 +27,9 @@ public extension Snippet {
         semaphore.wait()
         return try result!.get()
     }
+}
+
+// MARK: - Private Extension
+private extension Result where Success == Void {
+    static var success: Result { .success(()) }
 }
