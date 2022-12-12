@@ -32,7 +32,7 @@ XcodeSnippet was deployed as Swift Package Manager. Package to install in a proj
 let package = Package(
     ...
     dependencies: [
-        .package(url: "https://github.com/JiHoonAHN/XcodeSnippet.git", from: "0.1.0")
+        .package(url: "https://github.com/JiHoonAHN/XcodeSnippet.git", from: "0.1.1")
     ],
     ...
 )
