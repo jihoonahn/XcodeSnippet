@@ -80,7 +80,7 @@ private extension ProjectGenerate {
             var xcodeSnippet: [XcodeSnippet] = []
         }
 
-        _ = try snippetEx().install()
+        try snippetEx().install()
         """)
     }
 }
