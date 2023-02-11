@@ -1,6 +1,14 @@
 import XCTest
 import XcodeSnippetCLICore
-import Files
-import ShellOut
+
+final class XcodeSnippetTests: XCTestCase {
+    
+    override class func setUp() {
+    }
+        
+    func xcodeSnippet() throws {
+        
+    }
+}
 
 

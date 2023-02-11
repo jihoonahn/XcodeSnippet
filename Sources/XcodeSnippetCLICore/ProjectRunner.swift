@@ -1,5 +1,5 @@
 import Foundation
-import ShellOut
+import PLCommand
 import Files
 
 struct ProjectRunner {
@@ -7,12 +7,6 @@ struct ProjectRunner {
     
     func generate() throws {
         try folder.existenceSwiftPackage()
-        
-        try shellOut(
-            to: "swift run",
-            at: folder.path,
-            outputHandle: FileHandle.standardOutput,
-            errorHandle: FileHandle.standardError
-        )
+        PLCommand.Bash.run("cd \(folder.path) && swift run")
     }
 }

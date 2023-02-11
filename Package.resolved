@@ -10,12 +10,12 @@
       }
     },
     {
-      "identity" : "shellout",
+      "identity" : "plcommand",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/JohnSundell/ShellOut.git",
+      "location" : "https://github.com/Pelagornis/PLCommand.git",
       "state" : {
-        "revision" : "e1577acf2b6e90086d01a6d5e2b8efdaae033568",
-        "version" : "2.3.0"
+        "revision" : "cca5f606dd4cf5b3a8a94d43b89b0f0215537f01",
+        "version" : "0.1.0"
       }
     }
   ],

@@ -11,14 +11,14 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/johnsundell/files.git", from: "4.2.0"),
-        .package(url: "https://github.com/JohnSundell/ShellOut.git", from: "2.3.0")
+        .package(url: "https://github.com/Pelagornis/PLCommand.git", from: "0.1.0")
     ],
     targets: [
         .target(
             name: "XcodeSnippet",
             dependencies: [
                 .product(name: "Files", package: "files"),
-                .product(name: "ShellOut", package: "ShellOut")
+                .product(name: "PLCommand", package: "PLCommand")
             ]
         ),
         .executableTarget(
